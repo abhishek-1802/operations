@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Management</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>User Management</h1>
+    <a href="/users/add">Add New User</a>
+    <ul>
+      <% users.forEach(user => { %>
+        <li>
+          <div>
+            <strong>Name:</strong> <%= user.name %><br>
+            <strong>Email:</strong> <%= user.email %><br>
+            <strong>Age:</strong> <%= user.age %>
+          </div>
+          <div class="action-buttons">
+            <a href="/users/edit/<%= user._id %>">Edit</a>
+            <form action="/users/delete/<%= user._id %>" method="POST" style="display: inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>
