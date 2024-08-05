@@ -2,8 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const dotenv = require('dotenv');
 
 const app = express();
+dotenv.config();
+
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/userdb', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -23,7 +26,7 @@ app.get('/', (req, res) => {
   res.redirect('/users');
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port  http://localhost:${PORT}/users`);
 });
