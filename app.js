@@ -9,7 +9,7 @@ dotenv.config();
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/userdb', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://admin:admin@cluster0.cqsb6ri.mongodb.net/users', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
